@@ -7,10 +7,12 @@ class AppTestField extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
   final IconData icon;
-  const AppTestField({Key? key,
+  bool isObscure;
+  AppTestField({Key? key,
   required this.textController,
     required this.hintText,
-    required this.icon
+    required this.icon,
+    this.isObscure=false
   }) : super(key: key);
 
   @override
@@ -19,37 +21,38 @@ class AppTestField extends StatelessWidget {
       margin: EdgeInsets.only(left: Dimensions.height20,right: Dimensions.height20),
       decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(Dimensions.radius30),
+          borderRadius: BorderRadius.circular(Dimensions.radius15),
           boxShadow: [
             BoxShadow(
-                blurRadius: 10,
-                spreadRadius: 7,
-                offset: Offset(1,10),
+                blurRadius: 3,
+                spreadRadius: 1,
+                offset: Offset(1,1),
                 color: Colors.grey.withOpacity(0.2)
             )
           ]
       ),
       child: TextField(
+        obscureText: isObscure?true:false,
           controller: textController,
           decoration: InputDecoration(
               hintText: hintText,
               prefixIcon: Icon(icon, color: AppColors.mainColor,),
               focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(Dimensions.radius30),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15),
                   borderSide: BorderSide(
                     width: 1.0,
                     color: Colors.white,
                   )
               ),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(Dimensions.radius30),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15),
                   borderSide: BorderSide(
                     width: 1.0,
                     color: Colors.white,
                   )
               ),
               border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(Dimensions.radius30)
+                  borderRadius: BorderRadius.circular(Dimensions.radius15)
               )
           )
       ),

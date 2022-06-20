@@ -25,7 +25,7 @@ class CartRepo{
       return cart.add(jsonEncode(element));
     });
     sharedPreferences.setStringList(AppConstants.CART_LIST, cart);
-    //print(sharedPreferences.getStringList(AppConstants.CART_LIST));
+    print(sharedPreferences.getStringList(AppConstants.CART_LIST));
     //getCartList();
   }
 
@@ -33,6 +33,7 @@ class CartRepo{
     List<String> carts = [];
     if(sharedPreferences.containsKey(AppConstants.CART_LIST)){
       carts = sharedPreferences.getStringList(AppConstants.CART_LIST)!;
+      print("inside getCartList "+carts.toString());
     }
     List<CartModel> cartList = [];
 
@@ -53,6 +54,7 @@ class CartRepo{
       cartHistory = sharedPreferences.getStringList(AppConstants.CART_HISTORY_LIST)!;
     }
     for(int i=0;i<cart.length;i++){
+      print("history list "+cart[i]);
       cartHistory.add(cart[i]);
     }
     removeCart();
@@ -65,5 +67,10 @@ class CartRepo{
   void removeCart(){
     cart = [];
     sharedPreferences.remove(AppConstants.CART_LIST);
+  }
+  void clearCartHistory(){
+    removeCart();
+    cartHistory=[];
+    sharedPreferences.remove(AppConstants.CART_HISTORY_LIST);
   }
 }

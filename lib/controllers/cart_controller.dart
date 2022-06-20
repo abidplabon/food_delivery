@@ -63,7 +63,7 @@ class CartController extends GetxController {
     }
     return false;
   }
-  int getQuantity(ProductModel product){
+  int getQuantity(ProductModel product) {
     var quantity=0;
     if(_items.containsKey(product.id)){
       _items.forEach((key, value) {
@@ -99,6 +99,7 @@ class CartController extends GetxController {
   }
   set setCart(List<CartModel> items){
     storageItems = items;
+    print("Length of cart items "+storageItems.length.toString());
     for(int i=0;i<storageItems.length;i++){
       _items.putIfAbsent(storageItems[i].product!.id!,()=>storageItems[i]);
     }
@@ -120,6 +121,10 @@ class CartController extends GetxController {
   }
   void addToCartList(){
     cartRepo.addToCartList(getItems);
+    update();
+  }
+  void clearCartHistory(){
+    cartRepo.clearCartHistory();
     update();
   }
 }
