@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>io.flutter.embedded_views_preview</key>
+	<string>YES</string>
+
+	<key>NSAppTransportSecurity</key>
 	<key>CFBundleDisplayName</key>
 	<string>Food Delivery</string>
 	<key>CFBundleExecutable</key>

@@ -33,8 +33,13 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           //home: SignInPage(),
           //home: SplashScreen(),
+
+
           initialRoute: RouteHelper.getSplashPage(),
           getPages: RouteHelper.routes,
+
+
+
           //routes: {
           //   '/': (context)=> PopularFoodDetail(),
           //   '/food_details': (context)=> RecommendedFoodDetails(),
